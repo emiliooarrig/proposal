@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Botones Si/No</title>
+  <style>
+    /* Estilos básicos */
+
+    body{
+      background-color: #c2c2c2;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    #container {
+      text-align: center;
+      margin-top: 100px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 5px;
+      height: 100px;
+      width: 150px;
+      transition: .3s linear;
+    }
+
+    a{
+      text-decoration: none;
+      padding: 25px;
+      background-color: #fff;
+      font-size: 30px;
+      border: 2px solid #000;
+      border-radius: 5px;
+      margin: 20px;
+      display: block;
+    }
+
+    button:hover{
+      background-color: rgb(92, 95, 95);
+      color: #fff;
+      transition: .3s linear;
+    }
+  </style>
+</head>
+<body>
+
+<div id="container">
+    <h1> ¿Puedo ser tu san valentin? </h1>
+    <h2> No te atrevas a decir que no >:(</h2>
+  <button id = "siButton">Si</button>
+  <button id="noButton">No</button>
+</div>
+
+<script>
+  const noButton = document.getElementById('noButton');
+
+  // Función para cambiar la posición del botón 'No'
+  function cambiarPosicion() {
+    const maxX = window.innerWidth - noButton.clientWidth;
+    const maxY = window.innerHeight - noButton.clientHeight;
+    const newX = Math.floor(Math.random() * maxX);
+    const newY = Math.floor(Math.random() * maxY);
+
+    noButton.style.position = 'absolute';
+    noButton.style.left = `${newX}px`;
+    noButton.style.top = `${newY}px`;
+  }
+
+  function dicequeNo(){
+    alert('¿Como has conseguido decirme que no? :o');
+  }
+
+  function dicequeSi(){
+    alert("¡SIUUUUU!");
+    window.location.href = "paginaSi.html"
+    
+  }
+
+  // Evento al pasar el mouse sobre el botón 'No'
+  noButton.addEventListener('mouseover', cambiarPosicion);
+  siButton.addEventListener('click', dicequeSi);
+  noButton.addEventListener('click', dicequeNo);
+</script>
+
+</body>
+</html>

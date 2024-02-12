@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>PROPUESTA</title>
+</head>
+
+<body>
+
+    <div class="hidden elemento" id="elemento">
+        <div class="texto-dentro">
+            <h1 id="texto"> Hola Ari </h1>
+            <a href="chat.html" class="enlace" id="boton_rojo">Siguiente</a>
+
+            <button id="cambioButton"> Cambio </button>
+        </div>
+
+    </div>
+    <script>
+        window.addEventListener('scroll', mostrarElementos);
+
+        let indiceTexto = 0;
+
+        function mostrarElementos() {
+            var elementos = document.getElementsByClassName('elemento');
+            var pantallaAltura = window.innerHeight;
+
+            for (var i = 0; i < elementos.length; i++) {
+                var elemento = elementos[i];
+                var elementoPosicion = elemento.getBoundingClientRect().top;
+
+                if (elementoPosicion < pantallaAltura) {
+                    elemento.classList.add('visible');
+                } else if (elementoPosicion > pantallaAltura) {
+                    elemento.classList.add('hidden')
+                }
+            }
+        }
+
+        function cambioTexto(){
+            let textos = ['No, esta no es una practica de lenguaje orientado a objetos', 'Esta es una página programada especialmente para ti :)'];
+            var h1 = document.getElementById("texto");
+            var boton_rojo = document.getElementById('boton_rojo');
+
+            h1.textContent = textos[indiceTexto];
+            
+            if (indiceTexto == 2){
+                alert("Hemos llegado el final, da click en el boton rojito :)")
+                boton_rojo.style.display = 'block';
+                cambioButton.style.display = 'none';
+            }
+            
+            indiceTexto += 1;
+        }
+
+        cambioButton.addEventListener('click', cambioTexto);
+
+    </script>
+
+</body>
+
+</html>

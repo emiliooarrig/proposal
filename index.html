@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>PROPUESTA</title>
+    <title>practica-loo</title>
 </head>
 
 <body>
@@ -41,14 +41,14 @@
         }
 
         function cambioTexto(){
-            let textos = ['No, esta no es una practica de lenguaje orientado a objetos', 'Esta es una página programada especialmente para ti :)'];
+            let textos = ['No, esta no es una practica de lenguaje orientado a objetos', 'Esta es una página programada especialmente para ti :)', 'Hay una pregunta que quiero hacerte...' , '*Pausa dramática*'];
             var h1 = document.getElementById("texto");
             var boton_rojo = document.getElementById('boton_rojo');
 
             h1.textContent = textos[indiceTexto];
             
-            if (indiceTexto == 2){
-                alert("Hemos llegado el final, da click en el boton rojito :)")
+            if (indiceTexto == 4){
+                alert("Ahora si, da click en el boton rojito :)")
                 boton_rojo.style.display = 'block';
                 cambioButton.style.display = 'none';
             }
